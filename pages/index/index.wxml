@@ -1,0 +1,32 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='top'>
+      <view class='select'>健身</view>
+      <view>跑步</view>
+      <view>骑车</view>
+  </view>
+  <view class="top-box">
+    <view class="box-step-num">
+      <view class='step-icon'></view>
+      {{step}}步
+    </view>
+    <view class='all-num'>
+          总运动(分钟)
+          <view class='show-num'>2</view>
+          <view class='show-day'>共-天</view>
+    </view>
+    <view class='detail-day'>
+          <view>
+                <view class='item'>本周运动(分钟)
+                    <view class='show-minute'>50</view>
+                </view>
+                <view class='item'>本周好友排名 - 
+                    <view class='show-array'>
+                        <image src='{{userInfo.avatarUrl}}'></image>
+                    </view>
+                </view>
+          </view>
+    </view>
+    <view class='br'></view>
+  </view>
+</view>

@@ -1,0 +1,30 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/my/index"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Kaiの健身房",
+    "navigationBarTextStyle":"#000"
+  },
+  "tabBar": {
+    "backgroundColor":"#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "健身房"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "晒图"
+      },
+      {
+        "pagePath":"pages/my/index",
+        "text":"我的"
+      }
+    ]
+  }
+}
