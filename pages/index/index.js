@@ -5,7 +5,14 @@ Page({
   data: {
     motto: 'Hello World',
     userInfo: {},
-    step:0
+    step:0,
+    index:1,
+  },
+  gopage: function (event){
+    var id = event.currentTarget.dataset.select;
+    this.setData({
+      index:id
+    })
   },
   onLoad: function () {
     console.log('onLoad')
@@ -17,6 +24,7 @@ Page({
         userInfo:userInfo
       })
     })
+    this.getLocation();
     wx.getWeRunData({
       success(res) {
         wx.request({
@@ -35,6 +43,23 @@ Page({
             })
           }
         })
+      }
+    })
+  },
+  goRun:function(event){
+    var run = event.currentTarget.dataset.run;
+    wx.redirectTo({ url: "../run/run?index="+run });
+  },
+  getLocation:function(){//获取当前地址
+    var that = this;
+    wx.getLocation({
+      type: 'wgs84',
+      success: function (res) {
+        that.setData({
+          latitude: res.latitude,
+          longitude: res.longitude,
+        })
+
       }
     })
   }

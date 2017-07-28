@@ -75,3 +75,39 @@
 .top .select{
   border-bottom:4rpx solid #000;
 }
+.cle{
+  width:372rpx;
+  height:372rpx;
+  border:3rpx solid #cecece;
+  border-radius: 50% 50% 50% 50%;
+  border-bottom: none;
+  margin: 230rpx auto;
+  margin-bottom: 0;
+  color: #584f60;
+  text-align: center;
+}
+.cle-all{
+  margin-top:80rpx;
+  font-size: 32rpx;
+}
+.cle-num{
+  font-size: 80rpx;
+  line-height: 150rpx;
+}
+.cle-name{
+  color: #24c789;
+  font-size: 40rpx;
+}
+.bottom-spen{
+  text-align: center;
+  line-height: 120rpx;
+  color: #bdbdbd;
+  font-size: 36rpx;
+}
+.cle-btn{
+  background-color: #24c791;
+  color: #fff;
+  width:600rpx;
+  margin: 50rpx auto;
+  border-radius: 50rpx;
+}
