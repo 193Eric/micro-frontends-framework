@@ -1,0 +1,63 @@
+/* run.wxss */
+.run-page{
+  width:100%;
+  height:100%;
+  background: #4b4256;
+  text-align: center;
+  color: #fff;
+}
+.run-top{
+  text-align: center;
+  font-size: 36rpx;
+  line-height:80rpx;
+}
+.run-num{
+  font-size: 150rpx;
+  text-align: center;
+  display: inline-block;
+  margin: 0 auto;
+  position: relative;
+  line-height: 160rpx;
+  margin-bottom:20rpx;
+}
+.run-km{
+  font-size: 28rpx;
+  color: #7f7588;
+  position: absolute;
+  right:-60rpx;
+  bottom:-40rpx;
+}
+.run-status{
+  width:100%;
+  display: flex;
+}
+.run-status view{
+  flex: 1;
+}
+.run-minute{
+   margin: 40rpx 0;
+  font-size: 70rpx;
+}
+.run-span{
+  color: #7f7588;
+  font-size: 28rpx;
+}
+.run-bottom{
+  height:170rpx;
+  width:170rpx;
+  background: #fff;
+  position: relative;
+  margin: 35rpx auto;
+  border-radius: 50%;
+}
+.run-btn{
+  height:150rpx;
+width:150rpx;
+position:absolute;
+top:9rpx;
+left:8rpx;
+border:3rpx solid #51485b;
+border-radius:50%;
+color: #51485b;
+line-height: 150rpx;
+}
