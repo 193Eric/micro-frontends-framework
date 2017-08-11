@@ -1,25 +1,26 @@
 <!--index.wxml-->
 <view class="container">
   <view class='top'>
-      <view class='{{index == 1 ? "select":""}}' bindtap='gopage' data-select='1'>健身</view>
-      <view class='{{index == 2 ? "select":""}}' bindtap='gopage' data-select='2'>跑步</view>
-      <view class='{{index == 3 ? "select":""}}' bindtap='gopage' data-select='3'>骑车</view>
+      <view class='{{index == 0 ? "select":""}}' bindtap='gopage' data-select='0'>健身</view>
+      <view class='{{index == 1 ? "select":""}}' bindtap='gopage' data-select='1'>跑步</view>
+      <view class='{{index == 2 ? "select":""}}' bindtap='gopage' data-select='2'>骑车</view>
   </view>
-  <block wx:if="{{index==1}}">
-  <view class="top-box">
+  <swiper current="{{index}}" class="swiper-box" duration="300"  bindchange="bindChange">  
+  <swiper-item>
+    <view class="top-box">
     <view class="box-step-num">
       <view class='step-icon'></view>
       {{step}}步
     </view>
     <view class='all-num'>
           总运动(分钟)
-          <view class='show-num'>2</view>
+          <view class='show-num'>{{all_time}}</view>
           <view class='show-day'>共-天</view>
     </view>
     <view class='detail-day'>
           <view>
                 <view class='item'>本周运动(分钟)
-                    <view class='show-minute'>50</view>
+                    <view class='show-minute'>{{week_time}}</view>
                 </view>
                 <view class='item'>本周好友排名 - 
                     <view class='show-array'>
@@ -29,14 +30,10 @@
           </view>
     </view>
     <view class='br'></view>
-    <!-- This is our View
-    <map id="map" longitude="{{longitude}}" polyline="{{polyline}}" latitude="{{latitude}}"
-     scale="17"  show-location style="width: 100%; height: 300px;"></map>
-      -->
   </view>
-  </block>
-    <block wx:if="{{index==2}}">
-  <view class='top-box-2'>
+  </swiper-item>
+  <swiper-item>
+    <view class='top-box-2'>
       <view class='cle'>
           <view class='cle-all'>总公里数</view>
           <view class='cle-num'>0.0</view>
@@ -45,16 +42,17 @@
       <view class='bottom-spen'>"开启你的跑步模式吧"</view>
       <button class='cle-btn' bindtap='goRun' data-run='1'>开始跑步</button>
   </view>
-  </block>
-    <block wx:if="{{index==3}}">
-  <view class='top-box-3'>
-    <view class='cle'>
-      <view class='cle-all'>总公里数</view>
+  </swiper-item>
+  <swiper-item>
+     <view class='top-box-3'>
+        <view class='cle'>
+                <view class='cle-all'>总公里数</view>
                 <view class='cle-num'>0.0</view>
                 <view class='cle-name'>CYCLING</view>
         </view>
       <view class='bottom-spen'>"开启你的骑行模式吧"</view>
       <button class='cle-btn' bindtap='goRun' data-run='2'>开始骑行</button>
-    </view>
-    </block>
+   </view> 
+  </swiper-item>
+   </swiper>
 </view>

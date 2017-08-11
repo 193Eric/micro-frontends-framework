@@ -6,10 +6,3 @@
   font-family: "微软雅黑";
   color: #584f60;
 } 
-.run-bottom{
-  height:192rpx;
-  width:192rpx;
-  background: #fff;
-  line-height: 192rpx;
-  margin: 40rpx auto;
-}

@@ -1,1 +1,35 @@
 /* pages/my/index.wxss */
+.my-name{
+  line-height: 170rpx;
+  font-size: 48rpx;
+  color: #584f60;
+  padding: 0 56rpx;
+}
+.my-header{
+  background: #584f60;
+  color: #fff;
+  width:100%;
+  display:inline-block;
+}
+.my-header-img{
+margin:100rpx 56rpx;
+
+  width:184rpx;
+  height:184rpx;
+  border-radius: 50%;
+  float:left;
+}
+.my-header-name{
+  float: left;
+  font-size: 48rpx;
+  line-height: 116rpx;
+  margin: 100rpx 0 ;
+}
+.my-body{
+  line-height: 232rpx;
+  font-size: 40rpx;
+  padding: 0 56rpx;
+}
+.my-body-time{
+  font-size: 25rpx;
+  display: inline-block;}

@@ -35,7 +35,7 @@ Page({
     polyline: [{
       points: [
       ],
-      color: "#66db38AA",
+      color: "#0000FFAA",
       width: 4,
     }],
     index:1,
@@ -43,7 +43,10 @@ Page({
     _time:"00:00:00",
     km:"0.00",
     m_km:"--",
-    ka:"0"
+    ka:"0",
+    animation:"",
+    show:false,
+    show_num:1
   },
 
   /**
@@ -55,14 +58,46 @@ Page({
       option:options.index
     })
   },
-
+  onReady:function(){
+    var that = this;
+    this.show(1);
+    setTimeout(function(){
+      that.show(2);
+    },1200)
+    setTimeout(function () {
+      that.setData({
+        show: true
+      })
+    }, 2400)
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
+  show:function(num){
+
+    var that = this;
+    var animation = wx.createAnimation({
+      duration: 600,
+      transformOrigin: "50% 50%",
+      timingFunction:'ease'
+    })
+    this.animation = animation
+    animation.scale(0.01,0.01).step()
+    this.setData({
+      animation: animation.export()
+    })
+    setTimeout(function () {
+      animation.scale(1, 1).step();
+      that.setData({
+        show_num: num+1,
+        animation: animation.export()
+      })
+    }, 600)
+  },
   getLocation: function () {//获取当前地址
     var that = this;
     wx.getLocation({
-      type: 'wgs84',
+      type: 'gcj02',
       success: function (res) {
         var site = {
           latitude: res.latitude,
@@ -71,7 +106,7 @@ Page({
         that.data.polyline[0].points.push(site);
         var polyline = [{
           points: that.data.polyline[0].points,
-          color: "#66db38AA",
+          color: "#0000FFAA",
           width: 4,
         }]
         that.data.length++;
@@ -83,14 +118,17 @@ Page({
         })
         var last = that.data.polyline[0].points[that.data.length-1];
         var first = that.data.polyline[0].points[0];
-        var km = getDistance(first.latitude, first.longitude, last.latitude, last.longitude);
-        var m_km = Math.floor(that.data.km/time/60)!=0&&time!=0?Math.floor(that.data.km/time/60):'--';
-        if(that.data.option == 1){
-        var ka = m_km!="--"?60*time/3600*(30/m_km*0.4)/1000:0;
-        }else{
-          var ka = m_km != "--"?m_km*60*60*1.05*time/3600/1000:0;
+        var km = getDistance(first.latitude, first.longitude, last.latitude, last.longitude)/1000;
+        if (km < 0.0015) {
+          km = 0.0;
         }
-        console.log(Math.floor(that.data.km / time / 60))
+        km = km.toFixed(1);
+        var m_km =that.data.km!=0&&time!=0?(that.data.km/(time/10/60)).toFixed(1):'--';
+        if(that.data.option == 1){
+        var ka = m_km!="--"?(60*time/10/3600*(30/m_km*0.4)/1000).toFixed(1):0;
+        }else{
+          var ka = m_km != "--"?(m_km*60*60*1.05*time/10/3600/1000).toFixed(1):0;
+        }
         that.setData({
             km:km,
             m_km:m_km,
@@ -107,7 +145,9 @@ Page({
       this.setData({
         _time: num_time
       })
-      this.getLocation();
+      if(time%10 == 0){
+        this.getLocation();
+      }
       setTimeout(this.judgeTime,1000);
     }else{
       return;
@@ -124,6 +164,34 @@ Page({
       index: 3
     })
     timeout = false;
+  },
+  over:function(){
+    var uid;
+    var that =this;
+    wx.getStorage({
+      key: 'uid',
+      success: function (res) {
+        uid = res.data;
+        //获取运动详情
+        wx.request({
+          url: 'http://119.29.140.135/setRunList',
+          method: 'POST',
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          data: {
+            "uid": uid,
+            "run_time":time,
+            "end_time":(new Date().getTime()/1000).toFixed(0),
+            "type": that.data.option,
+            "km": that.data.km
+          },
+          success:function(res){
+            wx.switchTab({ url: "../index/index"});
+          }
+        })
+      }
+    })
   },
   continue: function () {
     this.setData({

@@ -8,9 +8,16 @@ App({
             if (res.code) {
               //发起网络请求
               wx.request({
-                url: 'http://xcx.easoncomm.com/getxcx',
+                url: 'http://119.29.140.135/getxcx',
                 data: {
                   code: res.code
+                },
+                success: function (res) {
+                  var uid = res.data.ms.id;
+                  wx.setStorage({
+                    key: "uid",
+                    data: uid
+                  })
                 }
               })
             } else {
@@ -30,7 +37,19 @@ App({
       wx.getUserInfo({
         success: function(res) {
           that.globalData.userInfo = res.userInfo
+          console.log(res)
           typeof cb == "function" && cb(that.globalData.userInfo)
+          wx.request({
+            url: 'http://119.29.140.135/setRunUser',
+            method: 'POST',
+            header: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            data: {
+              "name": res.userInfo.nickName,
+              "logo": res.userInfo.avatarUrl
+            }
+          })
         }
       })
     }

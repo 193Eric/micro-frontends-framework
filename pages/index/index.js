@@ -6,7 +6,9 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     step:0,
-    index:1,
+    all_time:0,
+    week_time:0,
+    index:0,
   },
   gopage: function (event){
     var id = event.currentTarget.dataset.select;
@@ -14,9 +16,15 @@ Page({
       index:id
     })
   },
+  bindChange:function(event){
+    var id = event.detail.current;
+    this.setData({
+      index: id
+    })
+  },
   onLoad: function () {
-    console.log('onLoad')
     var that = this
+    var uid;
     //调用应用实例的方法获取全局数据
     app.getUserInfo(function(userInfo){
       //更新数据
@@ -24,11 +32,35 @@ Page({
         userInfo:userInfo
       })
     })
-    this.getLocation();
+    //获取uid
+    wx.getStorage({
+      key: 'uid',
+      success: function (res) {
+        uid = res.data;
+        //获取运动详情
+        wx.request({
+          url: 'http://119.29.140.135/getRunDetail',
+          method: 'POST',
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          data: {
+            "uid": uid,
+          },
+          success: function (res) {
+            that.setData({
+              all_time:(res.data.ms.total/60).toFixed(1),
+              week_time:(res.data.ms.week/60).toFixed(1)
+            })
+          }
+        })
+      }
+    })
+    //获取微信今日步数
     wx.getWeRunData({
       success(res) {
         wx.request({
-          url: 'http://xcx.easoncomm.com/getvalue',
+          url: 'http://119.29.140.135/getvalue',
           method:'POST',
           header: {
             "Content-Type": "application/x-www-form-urlencoded"

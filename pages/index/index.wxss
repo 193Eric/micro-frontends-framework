@@ -111,3 +111,6 @@
   margin: 50rpx auto;
   border-radius: 50rpx;
 }
+swiper{
+  height:1000rpx;
+}

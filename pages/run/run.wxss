@@ -43,21 +43,43 @@
   font-size: 28rpx;
 }
 .run-bottom{
-  height:170rpx;
-  width:170rpx;
-  background: #fff;
-  position: relative;
-  margin: 35rpx auto;
-  border-radius: 50%;
+ text-align: center;
 }
 .run-btn{
   height:150rpx;
 width:150rpx;
-position:absolute;
-top:9rpx;
-left:8rpx;
 border:3rpx solid #51485b;
 border-radius:50%;
-color: #51485b;
-line-height: 150rpx;
+color:#51485b;
+line-height:150rpx;
+display:inline-block;
+margin:40rpx 8rpx;
+background:#fff;
+
+}
+.continue{
+background:#24c789;
+color: #fff;
+}
+.over{
+background:#f35252;
+color: #fff;
+}
+.back-page{
+  width:100%;
+background:#24c789;
+color:#fff;
+vertical-align:middle;
+text-align:center;
+height:100%;
+position:absolute;
+z-index:10;
+display: table;
+}
+.back-span{
+  color: #fff;
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 800rpx;
+  margin: 0 auto;
 }

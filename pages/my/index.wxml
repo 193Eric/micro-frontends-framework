@@ -1,2 +1,15 @@
 <!--pages/my/index.wxml-->
-<text>pages/my/index.wxml</text>
+<view class="container">
+  <view class='my-name'>
+      我
+  </view>
+  <view class='my-header'>
+    <image class='my-header-img' src='{{userInfo.avatarUrl}}'></image>
+    <view class='my-header-name'>
+        hellow
+    </view>
+  </view>
+      <view class='my-body'>
+        总运动0分钟 <view class='my-body-time'>2017.07.06加入Kaiの健身房</view>
+    </view>
+</view>

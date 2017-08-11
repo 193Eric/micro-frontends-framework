@@ -1,6 +1,29 @@
 <!--logs.wxml-->
-<view class="container log-list">
-  <block wx:for="{{logs}}" wx:for-item="log" wx:key="*this">
-    <text class="log-item">{{index + 1}}. {{log}}</text>
-  </block>
+<view class="container">
+    <view class='logs-name'>
+        达人动态
+        <view class='logs-icon' bindtap='send_log'></view>
+    </view>
+    <view class='logs-banner'>
+    <swiper indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{imgUrls}}">
+          <swiper-item>
+            <image src="{{item}}" class="slide-image" width="355" height="150"/>
+          </swiper-item>
+        </block>
+    </swiper>
+    </view>
+    <view class='logs-show'>
+        <block wx:for="{{logs}}">
+          <view class='item'>
+            <image class='item-img' src="{{item.img}}"></image>
+            <text class='item-text'>{{item.text}}</text>
+            <view class='item-bottom'>
+              <image class='item-ico' src="{{item.icon}}"></image>
+              <text class='item-name'>{{item.name}}</text>>
+            </view>
+          </view>
+        </block>
+    </view>
 </view>
