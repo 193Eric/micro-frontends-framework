@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    img:[]
+    img:[],
+    text:''
   },
 
   /**
@@ -19,9 +20,42 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
-  send_img:function(){
+  textChange: function (e){
+    this.setData({
+      text:e.detail.value
+    })
+  },
+  send_log:function(){
+    var that = this;
+    wx.getStorage({
+      key: 'uid',
+      success: function (res) {
+        var uid = res.data;
+        //获取运动详情
+        wx.request({
+          url: 'http://119.29.140.135/setlog',
+          method: 'POST',
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          data: {
+            "uid": uid,
+            "text":that.data.text
+          },
+          success: function (res) {
+            console.log(res.data.ms.insertId);
+            for(var i =0,len=that.data.img.length;i<len;i++){
+              that.upload(res.data.ms.insertId, that.data.img[i]);
+            }
+            wx.switchTab({ url: "../logs/logs" });
+          }
+        })
+      }
+    })
+  },
+  send_img:function(id){
     var that = this;
     wx.chooseImage({
       count: 1, // 默认9
@@ -34,15 +68,20 @@ Page({
         that.setData({
           img: that.data.img
         })
-        wx.uploadFile({
-          url: 'http://119.29.140.135/setRunImg', //仅为示例，非真实的接口地址
-          filePath: tempFilePaths,
-          name: 'file',
-          success: function (res) {
-            var data = res.data
-            //do something
-          }
-        })
+      }
+    })
+  },
+  upload:function(id,img){
+    wx.uploadFile({
+      url: 'http://119.29.140.135/setRunImg', //仅为示例，非真实的接口地址
+      filePath: img,
+      name: 'file',
+      formData: {
+        'id': id
+      },
+      success: function (res) {
+        var data = res.data
+        //do something
       }
     })
   },

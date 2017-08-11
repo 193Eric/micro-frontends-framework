@@ -80,7 +80,7 @@ Page({
   },
   goRun:function(event){
     var run = event.currentTarget.dataset.run;
-    wx.redirectTo({ url: "../run/run?index="+run });
+    wx.navigateTo({ url: "../run/run?index="+run });
   },
   getLocation:function(){//获取当前地址
     var that = this;
