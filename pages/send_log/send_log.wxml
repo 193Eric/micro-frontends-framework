@@ -1,0 +1,17 @@
+<!--send_log.wxml-->
+<view class="container">
+    <view class='logs-name'>
+        <view bindtap='close_log' class='close-log'>X</view>
+        新动态
+        <view bindtap='send_log' class='send-log'>发布</view>
+    </view>
+    <view class='send-input'>
+        <textarea    maxlength="120" placeholder="分享你的健身心得和经验吧" />
+    </view>
+    <view class='send-box'>
+    <block wx:for="{{img}}">
+    <image class='send-img' src="{{item}}"></image>
+    </block>    
+        <image class='send-img' bindtap='send_img' src="./send_img.png"></image>
+    </view>
+</view>

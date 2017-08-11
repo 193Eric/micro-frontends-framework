@@ -1,0 +1,34 @@
+/* send_log.wxss */
+.logs-name{
+  line-height: 115rpx;
+  background: #584f60;
+  color: #fff;
+  position: relative;
+  font-size: 32rpx;
+  text-align: center
+}
+.close-log{
+  position: absolute;
+  left:52rpx;
+}
+.send-log{
+  position: absolute;
+  right: 52rpx;
+  color: #b9b4bc;
+  top:0;
+}
+.send-input{
+  color: #c5c5c5;
+  font-size: 30rpx;
+  margin: 35rpx 30rpx; 
+  min-height: 130rpx;
+}
+.send-box{
+  margin: 0 15rpx;
+}
+.send-img{
+  width:120rpx;
+  height:120rpx;
+  margin: 0 15rpx;
+  float: left;
+}
