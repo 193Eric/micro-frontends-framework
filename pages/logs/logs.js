@@ -39,15 +39,10 @@ Page({
         "Content-Type": "application/x-www-form-urlencoded"
       },
       data: {
-        "uid": uid,
-        "text": that.data.text
+        page:1
       },
       success: function (res) {
-        console.log(res.data.ms.insertId);
-        for (var i = 0, len = that.data.img.length; i < len; i++) {
-          that.upload(res.data.ms.insertId, that.data.img[i]);
-        }
-        wx.switchTab({ url: "../logs/logs" });
+        
       }
     })
     this.setData({
