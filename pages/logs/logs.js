@@ -42,12 +42,12 @@ Page({
         page:1
       },
       success: function (res) {
-        
+        this.setData({
+          'imgUrls':res['lunbo']
+        })
       }
     })
-    this.setData({
 
-    })
   },
   send_log(){
     wx.navigateTo({ url: "../send_log/send_log"})
