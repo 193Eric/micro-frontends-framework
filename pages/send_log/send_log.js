@@ -49,7 +49,7 @@ Page({
             for(var i =0,len=that.data.img.length;i<len;i++){
               that.upload(res.data.ms.insertId, that.data.img[i]);
             }
-            wx.switchTab({ url: "../logs/logs" });
+            wx.switchTab({ url: "../logs/logs" }) ;
           }
         })
       }
