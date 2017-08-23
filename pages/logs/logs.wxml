@@ -9,7 +9,7 @@
         autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
         <block wx:for="{{imgUrls}}">
           <swiper-item>
-            <image src="{{item}}" class="slide-image" width="355" height="150"/>
+            <image src="http://119.29.140.135/{{item.url[0]}}" class="slide-image" width="355" height="150"/>
           </swiper-item>
         </block>
     </swiper>
@@ -17,11 +17,11 @@
     <view class='logs-show'>
         <block wx:for="{{logs}}">
           <view class='item'>
-            <image class='item-img' src="{{item.img}}"></image>
+            <image class='item-img' src="http://119.29.140.135/{{item.url[0]}}"></image>
             <text class='item-text'>{{item.text}}</text>
             <view class='item-bottom'>
-              <image class='item-ico' src="{{item.icon}}"></image>
-              <text class='item-name'>{{item.name}}</text>>
+              <image class='item-ico' src="{{item.logo}}"></image>
+              <text class='item-name'>{{item.nickname}}</text>
             </view>
           </view>
         </block>

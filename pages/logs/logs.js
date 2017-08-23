@@ -32,6 +32,7 @@ Page({
     duration: 1000
   },
   onLoad: function () {
+    const that = this;
     wx.request({
       url: 'http://119.29.140.135/getLogs',
       method: 'POST',
@@ -41,9 +42,11 @@ Page({
       data: {
         page:1
       },
-      success: function (res) {
-        this.setData({
-          'imgUrls':res['lunbo']
+      success: (res)=>{
+        console.log(res.data.ms.logs)
+        that.setData({
+          imgUrls:res.data.ms.lunbo,
+          logs: res.data.ms.logs,
         })
       }
     })

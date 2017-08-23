@@ -11,22 +11,22 @@ Page({
     index:0,
   },
   gopage: function (event){
-    var id = event.currentTarget.dataset.select;
+    const id = event.currentTarget.dataset.select;
     this.setData({
       index:id
     })
   },
   bindChange:function(event){
-    var id = event.detail.current;
+    const id = event.detail.current;
     this.setData({
       index: id
     })
   },
   onLoad: function () {
-    var that = this
-    var uid;
+    const that = this;
+    let uid;
     //调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo){
+    app.getUserInfo((userInfo)=>{
       //更新数据
       that.setData({
         userInfo:userInfo
@@ -35,7 +35,7 @@ Page({
     //获取uid
     wx.getStorage({
       key: 'uid',
-      success: function (res) {
+      success: (res)=>{
         uid = res.data;
         //获取运动详情
         wx.request({
@@ -47,7 +47,7 @@ Page({
           data: {
             "uid": uid,
           },
-          success: function (res) {
+          success:(res)=>{
             that.setData({
               all_time:(res.data.ms.total/60).toFixed(1),
               week_time:(res.data.ms.week/60).toFixed(1)
