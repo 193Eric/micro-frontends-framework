@@ -4,7 +4,7 @@ App({
     //调用API从本地缓存中获取数据
 
         wx.login({
-          success: function (res) {
+          success: function (res) { 
             if (res.code) {
               //发起网络请求
               wx.request({
