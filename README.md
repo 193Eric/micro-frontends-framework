@@ -18,9 +18,9 @@
 
 ![print](https://github.com/193Eric/Kai-gym/blob/master/load/QQ%E6%88%AA%E5%9B%BE20170919140330.png) 
 ![print](https://github.com/193Eric/Kai-gym/blob/master/load/QQ%E6%88%AA%E5%9B%BE20170919140342.png)
-![print](https://github.com/193Eric/Kai-gym/blob/master/load/QQ%E6%88%AA%E5%9B%BE20170919140402.png)  
+![print](https://github.com/193Eric/Kai-gym/blob/master/load/QQ%E6%88%AA%E5%9B%BE20170919140402.png)
 ![print](https://github.com/193Eric/Kai-gym/blob/master/load/QQ%E6%88%AA%E5%9B%BE20170919140547.png)
-![print](https://github.com/193Eric/Kai-gym/blob/master/load/QQ%E6%88%AA%E5%9B%BE20170919140559.png) 
+![print](https://github.com/193Eric/Kai-gym/blob/master/load/QQ%E6%88%AA%E5%9B%BE20170919140559.png)
 ---
 
 ##### 环境
