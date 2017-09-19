@@ -34,7 +34,7 @@ App({
       typeof cb == "function" && cb(this.globalData.userInfo)
     } else {
       //调用登录接口
-      wx.getUserInfo({
+      wx.getUserInfo({ 
         success: function(res) {
           that.globalData.userInfo = res.userInfo
           console.log(res)

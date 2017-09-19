@@ -1,4 +1,4 @@
-# vue-node-demo
+# Kai-gym 
 
 > github地址 https://github.com/193Eric/Kai-gym 
 
@@ -31,4 +31,8 @@
 ├── app.json                 // 小程序配置文件
 ├── .gitignore               //git忽略文件
 </pre>
+
+
+# Kai-gym
+健身小程序应用
 
