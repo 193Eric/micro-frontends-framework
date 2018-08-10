@@ -45,7 +45,7 @@ golang 微信公众号接口库，包括微信支付统一下单、获取access_
 
 - GetWeixinOrderInfo(appid string , mch_id string,out_trade_no string,noncestr string,sign_type string,key string)(*WXPayNotifyReq,error)  
   查询微信订单接口，为什么要有这个接口呢，因为微信支付回调可能不准，微信文档自己也说了，不能保证完成通知到。所以我要通过定时任务。通过这个接口去拿支付信息  
-  out_trade_no（统一下单传输的订单号），_type(签名加密方式，跟统一下单填一致)，这个接口会返回微信订单信息。  
+  out_trade_no（统一下单传输的订单号），sign_type(签名加密方式，跟统一下单填一致)，这个接口会返回微信订单信息。  
   
 > 接口微信公众号模版推送  
 
