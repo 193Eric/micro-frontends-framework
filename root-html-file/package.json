@@ -4,6 +4,6 @@
     "serve": "serve -s -l 5000"
   },
   "devDependencies": {
-    "serve": "^11.1.0"
+    "serve": "^14.1.1"
   }
 }
